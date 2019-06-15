@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>信息咨询网</title>
+	<meta name="Keywords" content="" />
+	<meta name="Description" content="" />
+	<meta name="renderer" content="webkit|ie-comp|ie-stand" /><base target="_blank" />
+	<link href="static/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="static/jquery.min.js"></script>
+</head>
+<body>
+<div id="main">
+	<div id="logo">
+		<img src="static/logo.jpg" alt="925my最新开区信息发布" />
+		<div id="menu">
+			<table id="g">
+				<tr>
+					<td><a>开机预告</a></td>
+					<td><a>优质好服</a></td>
+					<td><a>火爆人气</a></td>
+					<td><a>最新新区</a></td>
+					<td><a>高价收购流量站</a></td>
+					<td><a>qiyi166@gmail.com </a></td>
+					<td><a>联盟发布</a></td>
+					<td><a>游戏资讯</a></td>
+				</tr>
+			</table>
+		</div>
+		<div id="notice">本站只做流量互导，永不接广告，非盈利</div>
+	</div>
+	<div id="t">
+		<ul>
+			<li class="a">服务器名称</li>
+			<li class="b">服务器IP</li>
+			<li class="c">开放时间 [月/日/时间]</li>
+			<li class="d">地区线路</li>
+			<li class="e">在线客服</li>
+			<li class="f">游戏版本/介绍详情</li>
+			<li class="g">网址链接</li></ul>
+	</div>
+	<div id="w">
+		<div id="i1">
+		</div>
+		<div id="i2"></div>
+		<div id="i3"></div>
+		<div id="i4"></div>
+		<div id="i5"></div>
+		<div id="i6"></div>
+		<div id="i7"></div>
+		<div id="i9"></div>
+		<div id="link">
+			<ul>
+				<li>暂无友情链接</li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+		<div id="foot">Copyright (c) 2017 魔域私服发布网[{$site['url']}] All Rights Reserved {$site['tcp']}<br />
+			抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活
+			{$site['tongji']}
+		</div>
+	</div>
+	<div id="bar">
+		<ul>
+			<li><a href="#t" target="_self">刚刚开放</a></li>
+			<li><a href="#i5" target="_self">今日已开</a></li>
+			<li><a href="#i6" target="_self">今日未开</a></li>
+			<li><a href="#i7" target="_self">今日通宵</a></li>
+			<li><a href="#i9" target="_self">明日开放</a></li>
+			<li id="gotop">顶部</li>
+			<li id="close">关闭</li>
+		</ul>
+	</div>
+	<div id="open">菜单</div>
+	<div id="load">
+		<div>
+
+		</div>
+	</div>
+</div>
+<script>
+    function checkMin(i){
+        if(i < 30){
+            i = "00";
+        }else{
+            i = "30";
+        }
+        return i;
+    }
+    function getTime(i) {
+        var now=new Date();
+        if(i ==1) {
+            var month = now.getMonth() + 1;
+            var day = now.getDate();
+            var h = now.getHours();
+            var m = now.getMinutes();
+            m = checkMin(m);
+        }else if(i==2) {
+            var time = new Date(now.getTime() - 1800 * 1000);
+            var month=time.getMonth()+1;
+            var day=time.getDate();
+            var h=time.getHours();
+            var m=time.getMinutes();
+            m=checkMin(m);
+		}else if(i==3) {
+            var time = new Date(now.getTime() - 3600 * 1000);
+            var month=time.getMonth()+1;
+            var day=time.getDate();
+            var h=time.getHours();
+            var m=time.getMinutes();
+            m=checkMin(m);
+		}else if(i==4) {
+            var time = new Date(now.getTime() + 1800 * 1000);
+            var month=time.getMonth()+1;
+            var day=time.getDate();
+            var h=time.getHours();
+            var m=time.getMinutes();
+            m=checkMin(m);
+        }else if(i==5) {
+            var time = new Date(now.getTime() + 3600 * 1000);
+            var month=time.getMonth()+1;
+            var day=time.getDate();
+            var h=time.getHours();
+            var m=time.getMinutes();
+            m=checkMin(m);
+        }else if(i==6) {
+            var time = new Date(now.getTime() + 5400 * 1000);
+            var month=time.getMonth()+1;
+            var day=time.getDate();
+            var h=time.getHours();
+            var m=time.getMinutes();
+            m=checkMin(m);
+        }else if(i==7) {
+            var month = now.getMonth() + 1;
+            var day = now.getDate();
+            return month + "月" + day + "日 " + "通宵推荐";
+        }else if(i==8) {
+            var now = new Date();
+            now.setDate(now.getDate()+1)
+            var month = now.getMonth() + 1;
+            var day = now.getDate();
+            return month + "月" + day + "日 " + "即将开放";
+        }
+        return month + "月" + day + "日 " + h + "点" + m + "分";
+    }
+</script>
+
+<SCRIPT>
+	$(function () {
+		$.getJSON("ads.json", "", function(data) {
+            $.each(data.ad, function(i, item) {
+				$("#i1").append("<ol><ul><li class=\"a\">"+item.name+
+				"</li><li class=\"b\">下载专用登录器</li><li class=\"c\"><i>"+getTime(1)+
+				"</i><u>刚开</u></li><li class=\"d\">"+item.line+
+				"</li><li class=\"e\">"+item.qq+
+				"</li><li class=\"f\">"+item.info+
+					"</li><li class=\"g\"><a href=\""+item.url+
+						"\" rel=\"nofollow\">点击查看</a></li><a href=\""+item.url+
+                    "\" rel=\"nofollow\" title="+item.name+
+					"></a></ul></ol>"
+				);
+                $("#i5").append("<ol><ul><li class=\"a\">"+item.name+
+                    "</li><li class=\"b\">下载专用登录器</li><li class=\"c\"><i>"+getTime(2)+
+                    "</i><u>已开</u></li><li class=\"d\">"+item.line+
+                    "</li><li class=\"e\">"+item.qq+
+                    "</li><li class=\"f\">"+item.info+
+                    "</li><li class=\"g\"><a href=\""+item.url+
+                    "\" rel=\"nofollow\">点击查看</a></li><a href=\""+item.url+
+                    "\" rel=\"nofollow\" title="+item.name+
+                    "></a></ul></ol>"
+                );
+                $("#i5").append("<ol><ul><li class=\"a\">"+item.name+
+                    "</li><li class=\"b\">下载专用登录器</li><li class=\"c\"><i>"+getTime(3)+
+                    "</i><u>已开</u></li><li class=\"d\">"+item.line+
+                    "</li><li class=\"e\">"+item.qq+
+                    "</li><li class=\"f\">"+item.info+
+                    "</li><li class=\"g\"><a href=\""+item.url+
+                    "\" rel=\"nofollow\">点击查看</a></li><a href=\""+item.url+
+                    "\" rel=\"nofollow\" title="+item.name+
+                    "></a></ul></ol>"
+                );
+                $("#i6").append("<ol><ul><li class=\"a\">"+item.name+
+                    "</li><li class=\"b\">下载专用登录器</li><li class=\"c\"><i>"+getTime(4)+
+                    "</i><u>未开</u></li><li class=\"d\">"+item.line+
+                    "</li><li class=\"e\">"+item.qq+
+                    "</li><li class=\"f\">"+item.info+
+                    "</li><li class=\"g\"><a href=\""+item.url+
+                    "\" rel=\"nofollow\">点击查看</a></li><a href=\""+item.url+
+                    "\" rel=\"nofollow\" title="+item.name+
+                    "></a></ul></ol>"
+                );
+                $("#i6").append("<ol><ul><li class=\"a\">"+item.name+
+                    "</li><li class=\"b\">下载专用登录器</li><li class=\"c\"><i>"+getTime(5)+
+                    "</i><u>未开</u></li><li class=\"d\">"+item.line+
+                    "</li><li class=\"e\">"+item.qq+
+                    "</li><li class=\"f\">"+item.info+
+                    "</li><li class=\"g\"><a href=\""+item.url+
+                    "\" rel=\"nofollow\">点击查看</a></li><a href=\""+item.url+
+                    "\" rel=\"nofollow\" title="+item.name+
+                    "></a></ul></ol>"
+                );
+                $("#i6").append("<ol><ul><li class=\"a\">"+item.name+
+                    "</li><li class=\"b\">下载专用登录器</li><li class=\"c\"><i>"+getTime(6)+
+                    "</i><u>未开</u></li><li class=\"d\">"+item.line+
+                    "</li><li class=\"e\">"+item.qq+
+                    "</li><li class=\"f\">"+item.info+
+                    "</li><li class=\"g\"><a href=\""+item.url+
+                    "\" rel=\"nofollow\">点击查看</a></li><a href=\""+item.url+
+                    "\" rel=\"nofollow\" title="+item.name+
+                    "></a></ul></ol>"
+                );
+                $("#i7").append("<ol><ul><li class=\"a\">"+item.name+
+                    "</li><li class=\"b\">下载专用登录器</li><li class=\"c\"><i>"+getTime(7)+
+                    "</i><u>通宵</u></li><li class=\"d\">"+item.line+
+                    "</li><li class=\"e\">"+item.qq+
+                    "</li><li class=\"f\">"+item.info+
+                    "</li><li class=\"g\"><a href=\""+item.url+
+                    "\" rel=\"nofollow\">点击查看</a></li><a href=\""+item.url+
+                    "\" rel=\"nofollow\" title="+item.name+
+                    "></a></ul></ol>"
+                );
+                $("#i9").append("<ol><ul><li class=\"a\">"+item.name+
+                    "</li><li class=\"b\">下载专用登录器</li><li class=\"c\"><i>"+getTime(8)+
+                    "</i><u>明天</u></li><li class=\"d\">"+item.line+
+                    "</li><li class=\"e\">"+item.qq+
+                    "</li><li class=\"f\">"+item.info+
+                    "</li><li class=\"g\"><a href=\""+item.url+
+                    "\" rel=\"nofollow\">点击查看</a></li><a href=\""+item.url+
+                    "\" rel=\"nofollow\" title="+item.name+
+                    "></a></ul></ol>"
+                );
+            })
+        });
+		
+    })
+</SCRIPT>
+</body>
+</html>
